@@ -6,7 +6,7 @@ not supported by current STM32CubeIDE software which make certain older evaluati
 
 For the purpose of this tutorial let's assume reader is familiar with STM32CubeIDE -- knows how to set a project and how to debug it using ST-LINK V2/V3. The tutorial suggests using STM32VLDISCOVERY board (although it may be applied to other ST-LINK V1 boards like STM32L152-EVAL (MB819 Rev.A), or standalone ST-LINK V1).
 
-![Image](pict\vld.png "STM32VLDISCOVERY")
+![Image](pict/vld.png "STM32VLDISCOVERY")
 
 ## Needed additional tools
 
@@ -33,7 +33,7 @@ st-util 1.8.0
 
 When the tool cannot find the ST-LINK, there are probably wrongly set drivers (quite common), this may be fixed with zadig (https://zadig.akeo.ie/ also included in the tools folder) -- the tools is straightforward to use (according to following screenshot of result; one hint at the beginning the devices need to be listed by _Options_->_List All Devices_).
 
-![Image](pict\screenshot00.png "screenshot")
+![Image](pict/screenshot00.png "screenshot")
 
 ## Setting STM32CubeIDE
 
@@ -41,59 +41,59 @@ Before setting new configuration for the gdb-server it is needed to create a fir
 
 Open "Debug Configurations...":
 
-![Image](pict\screenshot01.png "screenshot01")
+![Image](pict/screenshot01.png "screenshot01")
 
 By RMB create "New Configuration":
 
-![Image](pict\screenshot02.png "screenshot02")
+![Image](pict/screenshot02.png "screenshot02")
 
 Add path to .elf file (project need to be successfully built before):
 
-![Image](pict\screenshot03.png "screenshot03")
+![Image](pict/screenshot03.png "screenshot03")
 
 Set gdb command as `${gnu_tools_for_stm32_compiler_path}/arm-none-eabi-gdb.exe`, server "ST-LINK" and port (4242).
 
-![Image](pict\screenshot04.png "screenshot04")
+![Image](pict/screenshot04.png "screenshot04")
 
 Additionally it is beneficial to set gdb-server to start with debug session (according to screenshot05-14), firstly it is needed to open "External Tools Configurations...":
 
-![Image](pict\screenshot05.png "screenshot05")
+![Image](pict/screenshot05.png "screenshot05")
 
 It is needed to create a "New Configuration":
 
-![Image](pict\screenshot06.png "screenshot06")
+![Image](pict/screenshot06.png "screenshot06")
 
 The configuration needs selecting path to gdb-server. It is useful to make a helping batch `run.bat` containing `st-flash erase && st-util -1 -m -p 4242`:
 
-![Image](pict\screenshot07.png "screenshot07")
+![Image](pict/screenshot07.png "screenshot07")
 
 On the "Build" tab is needed to uncheck "Build before launch" (as it was already done before):
 
-![Image](pict\screenshot08.png "screenshot08")
+![Image](pict/screenshot08.png "screenshot08")
 
 In debug configuration it is useful to add launch configuration to connect the previous two configurations together:
 
-![Image](pict\screenshot09.png "screenshot09")
+![Image](pict/screenshot09.png "screenshot09")
 
 By "Add..", 
 
-![Image](pict\screenshot10.png "screenshot10")
+![Image](pict/screenshot10.png "screenshot10")
 
 can be added the configurations,
 
-![Image](pict\screenshot11.png "screenshot11")
+![Image](pict/screenshot11.png "screenshot11")
 
 and set accordingly:
 
-![Image](pict\screenshot12.png "screenshot12")
+![Image](pict/screenshot12.png "screenshot12")
 
 Debug session may be entered by the launch configuration,
 
-![Image](pict\screenshot13.png "screenshot13")
+![Image](pict/screenshot13.png "screenshot13")
 
 When everything correctly set, debug session should be entered and work similar to ST-LINK/V2 (attached screenshot for reference).
 
-![Image](pict\screenshot14.png "screenshot14")
+![Image](pict/screenshot14.png "screenshot14")
 
 ## Final notes
 
